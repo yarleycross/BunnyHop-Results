@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bunny Hop · {{ 'Finish' if stream == 'finish' else 'Bib entry' }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='phone.js') }}"></script>
+</head>
+<body class="phone">
+  <main>
+    <header><p class="brand">Bunny Hop Live Timing</p>
+    <h1>{{ 'Finish line' if stream == 'finish' else 'Bib entry' }}</h1></header>
+    <form id="capture" data-stream="{{ stream }}">
+      {% if stream == 'bib' %}
+      <label for="bib">Bib number</label>
+      <input id="bib" inputmode="numeric" autocomplete="off" pattern="[0-9]{1,12}" maxlength="12" required>
+      {% endif %}
+      <button id="record">{{ 'FINISH' if stream == 'finish' else 'Save bib' }}</button>
+    </form>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <p id="last"></p>
+  </main>
+</body>
+</html>
