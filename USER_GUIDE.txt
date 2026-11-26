@@ -1,0 +1,59 @@
+SHAPWICK BUNNY HOP 1.4.3 — HQ CONTROLLER'S GUIDE
+
+SET UP
+Extract the complete ZIP to a folder on the Windows PC. Open BunnyHop.exe.
+This is a portable application: no Python, internet connection, administrator
+installation or command window is needed. Keep race files in a writable folder.
+Excel is used to edit entry sheets and view results. The processor itself does
+not require Excel. Allow a few seconds for the application to open.
+
+BEFORE THE RACE
+1. Click Browse and choose the original FOS Participants CSV or numbered Excel
+   Master (.xlsx). Do not rename a CSV to an Excel extension.
+2. Check Event year and race date. The date defaults to Easter Monday.
+3. Click 1. CHECK ENTRANTS (BEFORE RACE).
+4. In the same folder as your input, open BunnyHop_YEAR_Entry_Check.xlsx.
+   Check Issues to Review. The companion BunnyHop_YEAR_Results_Entry.xlsx is
+   the worksheet for race numbers and times.
+5. Allocate unique race numbers manually if they are blank. Numbers already
+   allocated in a Master are preserved. FOS does not allocate the bibs.
+
+An Excel Master can be a standalone sheet with RaceNumber, Firstname, Lastname,
+Gender, AgeCategory and optional ClubName, or the existing FOS workbook with
+a second sheet named Master list. Master categories are preserved; available
+age/DOB information is used to flag discrepancies. Raw FOS categories are
+derived from race-day age and sex. Check any discrepancies before race day.
+
+AFTER THE RACE
+1. Enter finish times in Results Entry. Use the established minutes.seconds
+   convention: 45.05 = 45 minutes 5 seconds; 45.10 or 45.1 = 45 minutes
+   10 seconds; 45.5 = 45 minutes 50 seconds. 65.03 = 65 minutes 3 seconds.
+   Leave Time blank for non-finishers. Do not enter finishing positions.
+2. Save and close the workbook in Excel.
+3. Browse to the completed .xlsx and click 2. PROCESS RESULTS (AFTER RACE).
+4. Open BunnyHop_YEAR_Classified_Results.xlsx beside the input.
+   Review Start Here and Data Checks, then the awards and full results.
+   HQ Controller prepares results; Race Director approves final awards.
+
+The historical All runners results input tab is recognised even when the
+FOS export is the first sheet. Otherwise use Results Entry or put the input
+table on the first sheet. Do not feed a published summary back as results input.
+
+RESULTS AND AWARDS
+Times determine every finishing position. Equal times retain source row order.
+The first three men and first three women get overall prizes. Age-group prizes
+pass to the first three eligible runners excluding overall prize winners;
+true age positions remain unchanged. Categories remain SM, SF, MV40/50/60/70/80
+and FV40/50/60/70. The oldest listed category includes older runners.
+Shapwick and Street Striders tabs highlight the first male and female in yellow;
+these local awards are independent of the overall/age prize pass-down.
+Club spelling suggestions are not silently merged. Blank club is acceptable.
+
+IF SOMETHING NEEDS ATTENTION
+ERROR means HOLD publication and resolve the listed source data. REVIEW means
+check the item. Correct the appropriate input, save it, and run again.
+The processor preserves inputs and creates _v2, _v3, etc. instead of replacing
+earlier output. Use the newest output. Close Excel if it is locking a file.
+No contact, medical or address fields are copied to the generated race sheets.
+
+Release acceptance status and remaining testing limits are in AUDIT_AND_TESTS.md.

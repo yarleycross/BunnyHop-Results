@@ -1,0 +1,182 @@
+[
+  {
+    "file": "bunny-hop-2023_Participants_12112026_1038.csv",
+    "records": 129,
+    "errors": 1,
+    "reviews": 13
+  },
+  {
+    "file": "bunny-hop-2024_Participants_12112026_1038.csv",
+    "records": 122,
+    "errors": 0,
+    "reviews": 13
+  },
+  {
+    "file": "bunny-hop-2025_Participants_01042025_1252.csv",
+    "records": 87,
+    "errors": 1,
+    "reviews": 4
+  },
+  {
+    "file": "bunny-hop-2025_Participants_03042026_1351.csv",
+    "records": 136,
+    "errors": 1,
+    "reviews": 10
+  },
+  {
+    "file": "bunny-hop-2025_Participants_16042025_0839.csv",
+    "records": 120,
+    "errors": 1,
+    "reviews": 7
+  },
+  {
+    "file": "bunny-hop-2025_Participants_16042025_0840.csv",
+    "records": 120,
+    "errors": 1,
+    "reviews": 7
+  },
+  {
+    "file": "bunny-hop-2025_Participants_19042025_1802.csv",
+    "records": 136,
+    "errors": 1,
+    "reviews": 8
+  },
+  {
+    "file": "bunny-hop-2025_Participants_23012026_2014.csv",
+    "records": 136,
+    "errors": 1,
+    "reviews": 10
+  },
+  {
+    "file": "bunny-hop-2025_Participants_30032025_2046.csv",
+    "records": 79,
+    "errors": 0,
+    "reviews": 3
+  },
+  {
+    "file": "bunny-hop-2025_Participants_30032025_2056.csv",
+    "records": 79,
+    "errors": 0,
+    "reviews": 3
+  },
+  {
+    "file": "street-striders-shapwick-bunny-hop-2026_Participants_02042026_1937.csv",
+    "records": 150,
+    "errors": 0,
+    "reviews": 6
+  },
+  {
+    "file": "street-striders-shapwick-bunny-hop-2026_Participants_12032026_1553.csv",
+    "records": 114,
+    "errors": 0,
+    "reviews": 3
+  },
+  {
+    "file": "street-striders-shapwick-bunny-hop-2026_Participants_12112026_1040.csv",
+    "records": 150,
+    "errors": 0,
+    "reviews": 6
+  },
+  {
+    "file": "street-striders-shapwick-bunny-hop-2026_Participants_15032026_2003.csv",
+    "records": 119,
+    "errors": 0,
+    "reviews": 3
+  },
+  {
+    "file": "street-striders-shapwick-bunny-hop-2026_Participants_16032026_1254.csv",
+    "records": 121,
+    "errors": 0,
+    "reviews": 5
+  },
+  {
+    "file": "street-striders-shapwick-bunny-hop-2026_Participants_20042026_1035.csv",
+    "records": 150,
+    "errors": 0,
+    "reviews": 6
+  },
+  {
+    "file": "shapwick-bunny-hop-2026_Participants_Master List.xlsx",
+    "records": 152,
+    "errors": 0,
+    "reviews": 9
+  },
+  {
+    "file": "2024 BH results for testing.xlsx",
+    "input_records": 135,
+    "finishers": 134,
+    "awards_overall": 6,
+    "awards_age": 27,
+    "errors": 9,
+    "reviews": 0,
+    "automatic_fixes": 133,
+    "calculation_checks": "PASS",
+    "publication_status": "HOLD: correct ERROR checks before publishing",
+    "sheets": 19
+  },
+  {
+    "file": "BH results for testing.xlsx",
+    "input_records": 117,
+    "finishers": 117,
+    "awards_overall": 6,
+    "awards_age": 30,
+    "errors": 0,
+    "reviews": 1,
+    "automatic_fixes": 4,
+    "calculation_checks": "PASS",
+    "publication_status": "REVIEW REQUIRED before publishing",
+    "sheets": 20
+  },
+  {
+    "file": "Bunny_Hop_2025 Results Input.xlsx",
+    "input_records": 117,
+    "finishers": 117,
+    "awards_overall": 6,
+    "awards_age": 30,
+    "errors": 0,
+    "reviews": 1,
+    "automatic_fixes": 4,
+    "calculation_checks": "PASS",
+    "publication_status": "REVIEW REQUIRED before publishing",
+    "sheets": 20
+  },
+  {
+    "file": "2026 race results for testing.xlsx",
+    "input_records": 132,
+    "finishers": 132,
+    "awards_overall": 6,
+    "awards_age": 30,
+    "errors": 0,
+    "reviews": 0,
+    "automatic_fixes": 0,
+    "calculation_checks": "PASS",
+    "publication_status": "READY FOR MANUAL SIGN-OFF",
+    "sheets": 17
+  },
+  {
+    "file": "shapwick-bunny-hop-2026_Results Input.xlsx",
+    "input_records": 132,
+    "finishers": 132,
+    "awards_overall": 6,
+    "awards_age": 30,
+    "errors": 0,
+    "reviews": 0,
+    "automatic_fixes": 0,
+    "calculation_checks": "PASS",
+    "publication_status": "READY FOR MANUAL SIGN-OFF",
+    "sheets": 17
+  },
+  {
+    "file": "BH_results_updated.xlsx",
+    "input_records": 117,
+    "finishers": 117,
+    "awards_overall": 6,
+    "awards_age": 30,
+    "errors": 0,
+    "reviews": 1,
+    "automatic_fixes": 4,
+    "calculation_checks": "PASS",
+    "publication_status": "REVIEW REQUIRED before publishing",
+    "sheets": 20
+  }
+]

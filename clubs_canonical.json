@@ -1,0 +1,21 @@
+{
+  "canonical": {
+    "draycott running club": "Draycott Running Club",
+    "street striders": "Street Striders",
+    "weston athletic club": "Weston Athletic Club",
+    "cheddar running club": "Cheddar Running Club",
+    "wells city harriers": "Wells City Harriers",
+    "quantock harriers": "Quantock Harriers",
+    "westbury harriers": "Westbury Harriers"
+  },
+  "never_merge_pairs": [
+    [
+      "westbury harriers",
+      "wells city harriers"
+    ],
+    [
+      "wells city harriers",
+      "westbury harriers"
+    ]
+  ]
+}

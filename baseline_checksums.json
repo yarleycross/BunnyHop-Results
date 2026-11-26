@@ -1,0 +1,26 @@
+{
+  "fields": [
+    "bib",
+    "seconds",
+    "overall",
+    "sex_pos",
+    "age_pos",
+    "club_pos",
+    "club_sex_pos",
+    "overall_award",
+    "age_award",
+    "sex",
+    "age",
+    "club"
+  ],
+  "expected": {
+    "BH results for testing.xlsx": {
+      "input_sha256": "3abf583dffc50389afd0a132ac24e28d04654fc43b2aec4e55b4710e51686917",
+      "classification_sha256": "10775876cbf6a7ed7311ea9adb7dc7186cc0673f10c934f356772c4ffa337ae9"
+    },
+    "2026 race results for testing.xlsx": {
+      "input_sha256": "756c6ed529a6bcbb35d8c7828f96c5cbfbb3ddf1e7f5a706b0a37b0fb86f36e0",
+      "classification_sha256": "24318f93271e50a6b133994c6833a0ce12f1a53098a015e1409e281b6373833e"
+    }
+  }
+}
