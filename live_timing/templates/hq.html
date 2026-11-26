@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bunny Hop · HQ</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='hq.js') }}"></script>
+</head>
+<body class="hq">
+  <main>
+    <header><p class="brand">Bunny Hop Live Timing · v0.1</p><h1>Race control</h1></header>
+    {% if lan_ip %}
+    <nav aria-label="Phone connections">
+      <span>Finish phone <code>http://{{ lan_ip }}:{{ port }}/phone/finish</code></span>
+      <span>Bib phone <code>http://{{ lan_ip }}:{{ port }}/phone/bib</code></span>
+    </nav>
+    {% endif %}
+    <section>
+      <h2>Official start</h2>
+      <form id="start">
+        <label for="start-time">Earlier start on the laptop clock</label>
+        <div class="actions">
+          <input type="datetime-local" id="start-time" step="1">
+          <button type="submit" value="earlier" class="secondary">Set earlier start</button>
+          <button type="submit" value="now">Set start now</button>
+        </div>
+      </form>
+      <p id="race-status" role="status">Connecting…</p>
+    </section>
+    <section>
+      <h2>Finishes</h2>
+      <p id="summary"></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th scope="col">Sequence</th><th scope="col">Captured time</th><th scope="col">Captured bib</th>
+            <th scope="col">Reconciled time</th><th scope="col">Reconciled bib</th><th scope="col">Status</th>
+            <th scope="col"><span class="sr-only">Actions</span></th>
+          </tr></thead>
+          <tbody id="finishes"></tbody>
+        </table>
+      </div>
+      <button id="add-finish" class="secondary" disabled>Add missing finish</button>
+      <form id="correction" hidden>
+        <h3 id="edit-heading"></h3>
+        <p>Leave a field blank to use its captured value.</p>
+        <div class="fields">
+          <label>Bib override <input id="edit-bib" inputmode="numeric" pattern="[0-9]{1,12}" maxlength="12"></label>
+          <label>Elapsed whole seconds <input id="edit-seconds" type="number" min="0" max="86399" step="1"></label>
+          <label class="check"><input id="edit-void" type="checkbox"> Void this sequence</label>
+        </div>
+        <label>Correction reason <input id="edit-reason" maxlength="250" required></label>
+        <div class="actions">
+          <button>Save correction</button>
+          <button type="button" id="cancel-edit" class="secondary">Cancel</button>
+        </div>
+      </form>
+      <p id="edit-status" role="status"></p>
+    </section>
+    <section>
+      <h2>Export to Excel</h2>
+      <form id="export">
+        <label for="template">Unused Results Entry template from the existing processor</label>
+        <div class="actions">
+          <input id="template" name="template" type="file" accept=".xlsx" required>
+          <button>Download reconciled workbook</button>
+        </div>
+      </form>
+      <p id="export-status" role="status"></p>
+    </section>
+  </main>
+</body>
+</html>
