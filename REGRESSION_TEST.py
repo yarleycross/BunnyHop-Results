@@ -11,8 +11,14 @@ CFG=Path(__file__).parent/'config'
 REPORT=[]
 
 class Regressions(unittest.TestCase):
+    def require_historical_files(self, filenames):
+        missing = [name for name in filenames if not (DATA / name).is_file()]
+        if missing:
+            self.fail(f'Missing historical datasets in {DATA.resolve()}: {", ".join(missing)}')
+
     def test_preserved_historical_classifications(self):
         baseline=json.loads(Path(__file__).with_name('baseline_checksums.json').read_text())
+        self.require_historical_files(baseline['expected'])
         for name,expected in baseline['expected'].items():
             path=DATA/name
             self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),expected['input_sha256'])
@@ -44,7 +50,10 @@ class Regressions(unittest.TestCase):
             self.assertEqual(len({r.club for r in result[1]}),2)
 
     def test_real_csvs(self):
-        for p in sorted(DATA.glob('*.csv')):
+        files = sorted(p for p in DATA.glob('*.csv') if p.is_file())
+        if not files:
+            self.fail(f'Missing historical datasets: no .csv files found in {DATA.resolve()}')
+        for p in files:
             year=next(str(y) for y in range(2023,2027) if str(y) in p.name)
             before=hashlib.sha256(p.read_bytes()).hexdigest()
             entrants,issues,*_=bh.analyse_participants(p,bh.easter_monday(int(year)),CFG)
@@ -56,6 +65,7 @@ class Regressions(unittest.TestCase):
 
     def test_real_results(self):
         cases=[('2024 BH results for testing.xlsx',134),('BH results for testing.xlsx',117),('Bunny_Hop_2025 Results Input.xlsx',117),('2026 race results for testing.xlsx',132),('shapwick-bunny-hop-2026_Results Input.xlsx',132),('BH_results_updated.xlsx',117)]
+        self.require_historical_files(name for name, _ in cases)
         for name,count in cases:
             p=DATA/name
             before=hashlib.sha256(p.read_bytes()).hexdigest()
@@ -83,7 +93,9 @@ class Regressions(unittest.TestCase):
             REPORT.append({'file':name,**stats})
 
     def test_real_master_and_standalone(self):
-        p=DATA/'shapwick-bunny-hop-2026_Participants_Master List.xlsx'
+        name = 'shapwick-bunny-hop-2026_Participants_Master List.xlsx'
+        self.require_historical_files([name])
+        p=DATA/name
         es,issues,*_=bh.analyse_participants(p,date(2026,4,6),CFG)
         self.assertEqual(len(es),152);self.assertEqual(sum(bool(e['bib']) for e in es),152)
         w=load_workbook(p,read_only=True,data_only=True)
