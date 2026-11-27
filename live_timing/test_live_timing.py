@@ -1,5 +1,6 @@
 """Fictional race coverage, including the unchanged results processor."""
 from concurrent.futures import ThreadPoolExecutor
+from contextlib import closing
 from io import BytesIO
 from pathlib import Path
 import sqlite3
@@ -68,7 +69,7 @@ class LiveTimingTests(unittest.TestCase):
         self.assertEqual(self.capture_at(1, 4100).status_code, 201)
         self.capture_at(3, 5230)
         # A separate connection to the same file sees the original events at acknowledgement.
-        with sqlite3.connect(self.database) as db:
+        with closing(sqlite3.connect(self.database)) as db, db:
             self.assertEqual(db.execute("SELECT COUNT(*) FROM captures").fetchone()[0], 3)
         reopened = create_app(self.database, LAN_IP).test_client()
         duplicate = self.capture("finish", 1, client=reopened)
@@ -91,12 +92,12 @@ class LiveTimingTests(unittest.TestCase):
 
     def test_failed_database_write_does_not_acknowledge_or_consume_position(self):
         self.start()
-        with sqlite3.connect(self.database) as db:
+        with closing(sqlite3.connect(self.database)) as db, db:
             db.execute("""CREATE TRIGGER deny_capture BEFORE INSERT ON captures
                           BEGIN SELECT RAISE(ABORT, 'fictional storage failure'); END""")
         response = self.capture("finish", 1)
         self.assertEqual(response.status_code, 503)
-        with sqlite3.connect(self.database) as db:
+        with closing(sqlite3.connect(self.database)) as db, db:
             db.execute("DROP TRIGGER deny_capture")
         self.assertEqual(self.capture("finish", 1).get_json()["sequence"], 1)
 
@@ -115,7 +116,7 @@ class LiveTimingTests(unittest.TestCase):
         rows = self.client.get("/api/race").get_json()["rows"]
         self.assertEqual((rows[0]["original_bib"], rows[0]["bib"]), ("999", "102"))
         self.assertEqual(rows[2]["finish_ms"], START + 2_706_100)
-        with sqlite3.connect(self.database) as db:
+        with closing(sqlite3.connect(self.database)) as db, db:
             self.assertEqual(db.execute("SELECT bib FROM corrections WHERE sequence=1 ORDER BY revision")
                              .fetchall(), [("103",), ("102",)])
 
